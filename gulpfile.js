@@ -9,7 +9,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('babel', function () {
-  const bab = babel();
+  const bab = babel({presets: ['es2015']});
   bab.on('error', function (e) {
     console.log(e.stack);
   });

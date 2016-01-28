@@ -37,6 +37,7 @@
   },
   "homepage": "https://github.com/vorpaljs/vorpal-autocomplete-fs#readme",
   "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
     "coveralls": "^2.11.6",
     "fs-extra": "^0.26.5",
     "gulp": "^3.9.0",

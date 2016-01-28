@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const strip = require('strip-ansi');
-
 const isObject = function (value) {
   const type = typeof value;
   return !!value && (type === 'object' || type === 'function');

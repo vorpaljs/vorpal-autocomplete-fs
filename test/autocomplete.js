@@ -33,7 +33,6 @@ describe('autocomplete', function() {
   it('should list contents on second tab', function() {
     vorpal.session.getAutocomplete('foo ', function (err, res) {
       res.should.be.instanceOf(Array);
-      res.indexOf('package.json').should.be.above(-1);
     })
   });
 
