@@ -1,0 +1,81 @@
+{
+  "name": "vorpal-autocomplete-fs",
+  "version": "0.0.01",
+  "description": "File System autocompletion for Vorpal",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec && xo",
+    "nyc": "nyc -x mocha",
+    "mocha": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vorpaljs/vorpal-autocomplete-fs.git"
+  },
+  "keywords": [
+    "vorpal",
+    "extension",
+    "autocompletion",
+    "autocomplete",
+    "tab",
+    "tabbed completion",
+    "fs",
+    "file system",
+    "cli",
+    "immersive",
+    "repl",
+    "vorpal",
+    "vorpal.js",
+    "linux",
+    "unix",
+    "posix"
+  ],
+  "author": "dthree",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vorpaljs/vorpal-autocomplete-fs/issues"
+  },
+  "homepage": "https://github.com/vorpaljs/vorpal-autocomplete-fs#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "fs-extra": "^0.26.5",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-changed": "^1.3.0",
+    "istanbul": "^0.4.2",
+    "lodash": "^4.0.1",
+    "mocha": "^2.4.4",
+    "shelljs": "^0.5.3",
+    "should": "^8.2.1",
+    "strip-ansi": "^3.0.0",
+    "vorpal": "^1.7.3",
+    "xo": "^0.9.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "strip-ansi": "^3.0.0"
+  },
+  "engines": {
+    "node": ">= 0.11.16",
+    "iojs": ">= 1.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "xo": {
+    "envs": [
+      "node",
+      "mocha"
+    ],
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "no-unused-expressions": 0,
+      "no-nested-ternary": 0,
+      "no-unneeded-ternary": 0,
+      "no-implicit-coercion": 0,
+      "prefer-arrow-callback": 0,
+      "prefer-reflect": 0
+    }
+  }
+}
