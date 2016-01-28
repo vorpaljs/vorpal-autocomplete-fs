@@ -1,12 +1,11 @@
 'use strict';
 
-const $ = require('shelljs')
-const fs = require('fs-extra')
-
+var $ = require('shelljs')
+var fs = require('fs-extra')
 
 module.exports = {
 
-	writeSampleDir(cb) {
+	writeSampleDir: function(cb) {
 
 		// If tests fail mid, script cleanup doesn't happen.
 		// This makes sure we are in the right dir before 
@@ -20,10 +19,10 @@ module.exports = {
 		$.mkdir('-p', './testing/');
 		$.mkdir('-p', './testing/sub/');
 
-		let filler = "fill|";
+		var filler = "fill|";
 
 		function writeDir(dir, cbk) {
-			let files = ['a.txt', 'c.exe', 'd.json', 'e.gif', 'b.tgz', 'f.jpg', 'g', '.hidden'];
+			var files = ['a.txt', 'c.exe', 'd.json', 'e.gif', 'b.tgz', 'f.jpg', 'g', '.hidden'];
 			function write() {
 				var next = files.shift();
 				if (next) {
@@ -46,7 +45,7 @@ module.exports = {
 		})
 	},
 
-	deleteSampleDir() {
+	deleteSampleDir: function() {
 		fs.removeSync('./testing');
 	}
 
