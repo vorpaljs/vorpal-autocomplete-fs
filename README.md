@@ -1,4 +1,4 @@
-# Vorpal - Filesystem Autocompletion
+# Vorpal - File System Autocompletion
 
 [![Build Status](https://travis-ci.org/vorpaljs/vorpal-autocomplete-fs.svg)](https://travis-ci.org/vorpaljs/vorpal-autocomplete-fs)
 [![Coverage Status](https://coveralls.io/repos/vorpaljs/vorpal-autocomplete-fs/badge.svg?branch=master)](https://coveralls.io/r/vorpaljs/vorpal-autocomplete-fs?branch=master)
