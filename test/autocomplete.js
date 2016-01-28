@@ -1,8 +1,8 @@
-const assert = require("assert");
-const _ = require('lodash');
-const should = require('should');
-const autocomplete = require('./../dist/index')
-const Vorpal = require('vorpal');
+var assert = require("assert");
+var _ = require('lodash');
+var should = require('should');
+var autocomplete = require('./../dist/index')
+var Vorpal = require('vorpal');
 var vorpal = Vorpal();
 
 vorpal.show();

@@ -1,11 +1,11 @@
-const assert = require("assert");
-const should = require('should');
-const strip = require('strip-ansi');
-const util = require('./util/util');
-const ls = require('./../dist/index')
-const os = require('os');
+var assert = require("assert");
+var should = require('should');
+var strip = require('strip-ansi');
+var util = require('./util/util');
+var ls = require('./../dist/index')
+var os = require('os');
 
-const expected = {
+var expected = {
   rootDirFlat: 'a.txt  b.tgz  c.exe  d.json  e.gif  f.jpg  g  sub\n',
   rootDirFlatAll: '.  ..  a.txt  b.tgz  c.exe  d.json  e.gif  f.jpg  g  .hidden  sub\n',
   rootDirFlatHidden: 'a.txt  b.tgz  c.exe  d.json  e.gif  f.jpg  g  .hidden  sub\n',
