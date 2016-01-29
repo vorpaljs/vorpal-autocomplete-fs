@@ -1,6 +1,6 @@
 {
   "name": "vorpal-autocomplete-fs",
-  "version": "0.0.01",
+  "version": "0.0.1",
   "description": "File System autocompletion for Vorpal",
   "main": "./dist/index.js",
   "scripts": {
