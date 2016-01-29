@@ -163,7 +163,7 @@ var ls = {
       // Make directories cyan.
       fileName = data.isDirectory() ? chalk.cyan(fileName) : fileName;
 
-      var include = options.directory && file !== '.' ? false : !dotted ? true : dotted && options.all ? true : dotted && !implied && options.almostall ? true : options.directory && file === '.' ? true : false;
+      var include = options.directory && file !== '.' && !data.isDirectory() ? false : !dotted ? true : dotted && options.all ? true : dotted && !implied && options.almostall ? true : options.directory && file === '.' ? true : false;
 
       if (include) {
         files.push(fileName);
@@ -180,20 +180,37 @@ var ls = {
   }
 };
 
-module.exports = {
-  data: function data(string) {
+var directory = false;
+
+function exp(options) {
+  var self = this;
+  this.options = options;
+
+  this.data = function (string) {
     var parts = String(string || '').split('/');
     parts.pop();
     var prefix = parts.join('/');
     prefix = String(prefix).trim() === '' ? '.' : prefix;
-    var res = ls.exec.call(this, [prefix], { almostall: true, classify: true });
+    var opts = {
+      almostall: true,
+      classify: true
+    };
+    if (self.options && self.options.directory === true) {
+      opts.directory = true;
+    }
+    var res = ls.exec.call(this, [prefix], opts);
     if (isObject(res) && res.message) {
       // System bell.
       console.log('\u0007');
       return [];
     }
     return res;
-  },
+  };
+  this.exec = ls.exec;
+}
 
-  exec: ls.exec
+module.exports = function (options) {
+  options = options || {};
+  var obj = new exp(options);
+  return obj;
 };

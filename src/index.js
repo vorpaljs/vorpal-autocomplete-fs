@@ -177,7 +177,7 @@ const ls = {
       fileName = (data.isDirectory()) ? chalk.cyan(fileName) : fileName;
 
       const include =
-        (options.directory && file !== '.') ? false :
+        (options.directory && (file !== '.' && !data.isDirectory())) ? false :
         (!dotted) ? true :
         (dotted && options.all) ? true :
         (dotted && !implied && options.almostall) ? true :
@@ -200,21 +200,37 @@ const ls = {
   }
 };
 
-module.exports = {
+let directory = false;
 
-  data(string) {
+function exp(options) {
+  var self = this;
+  this.options = options;
+
+  this.data = function(string) {
     const parts = String(string || '').split('/');
     parts.pop();
     let prefix = parts.join('/');
     prefix = String(prefix).trim() === '' ? '.' : prefix;
-    const res = ls.exec.call(this, [prefix], {almostall: true, classify: true});
+    let opts = {
+      almostall: true,
+      classify: true
+    }
+    if (self.options && self.options.directory === true) {
+      opts.directory = true;
+    }
+    const res = ls.exec.call(this, [prefix], opts);
     if (isObject(res) && res.message) {
       // System bell.
       console.log('\u0007');
       return [];
     }
     return res;
-  },
+  }
+  this.exec = ls.exec
+}
 
-  exec: ls.exec
-};
+module.exports = function(options) {
+  options = options || {};
+  var obj = new exp(options);
+  return obj;
+}
