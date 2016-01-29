@@ -2,7 +2,7 @@ var assert = require("assert");
 var should = require('should');
 var strip = require('strip-ansi');
 var util = require('./util/util');
-var ls = require('./../dist/index')
+var ls = require('./../dist/index')()
 var os = require('os');
 
 var expected = {

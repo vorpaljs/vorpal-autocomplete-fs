@@ -200,21 +200,19 @@ const ls = {
   }
 };
 
-let directory = false;
-
-function exp(options) {
-  var self = this;
+function Exp(options) {
+  const self = this;
   this.options = options;
 
-  this.data = function(string) {
+  this.data = function (string) {
     const parts = String(string || '').split('/');
     parts.pop();
     let prefix = parts.join('/');
     prefix = String(prefix).trim() === '' ? '.' : prefix;
-    let opts = {
+    const opts = {
       almostall: true,
       classify: true
-    }
+    };
     if (self.options && self.options.directory === true) {
       opts.directory = true;
     }
@@ -225,12 +223,12 @@ function exp(options) {
       return [];
     }
     return res;
-  }
-  this.exec = ls.exec
+  };
+  this.exec = ls.exec;
 }
 
-module.exports = function(options) {
+module.exports = function (options) {
   options = options || {};
-  var obj = new exp(options);
+  const obj = new Exp(options);
   return obj;
-}
+};

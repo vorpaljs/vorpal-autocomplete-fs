@@ -11,8 +11,12 @@ describe('autocomplete', function() {
 
   it('should register without throwing', function() {
     (function () {
+      vorpal.command('bar [files...]')
+        .autocomplete(autocomplete({directory: true}));
+    }).should.not.throw();
+    (function () {
       vorpal.command('foo [files...]')
-        .autocomplete(autocomplete);
+        .autocomplete(autocomplete());
     }).should.not.throw();
   });
 

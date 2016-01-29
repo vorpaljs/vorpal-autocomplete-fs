@@ -180,9 +180,7 @@ var ls = {
   }
 };
 
-var directory = false;
-
-function exp(options) {
+function Exp(options) {
   var self = this;
   this.options = options;
 
@@ -211,6 +209,6 @@ function exp(options) {
 
 module.exports = function (options) {
   options = options || {};
-  var obj = new exp(options);
+  var obj = new Exp(options);
   return obj;
 };
