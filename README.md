@@ -23,7 +23,7 @@ vorpal.delimiter('myapp$').show();
 
 vorpal
   .command('cat [dirs...]')
-  .autocomplete(fsAutocomplete);
+  .autocomplete(fsAutocomplete());
 ```
 
 ```bash
@@ -33,6 +33,16 @@ bin/  myapp.js  package.json  README.md
 myapp~$ cat m [tab]
 myapp~$ cat myapp.js
 
+```
+
+#### Only show directories
+
+To omit files from the autocomplete and only show directories, pass in the `directory` option:
+
+```js
+vorpal
+  .command('cat [dirs...]')
+  .autocomplete(fsAutocomplete({directory: true}));
 ```
 
 ### License
